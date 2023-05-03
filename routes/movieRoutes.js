@@ -41,12 +41,12 @@ router.get('/:id', async (req,res) => {
     try{
         const movie = await Movie.findOne({_id: id})
         if(!movie){
-            res.status(422).json({message: 'O usuario não foi encontrado!'})
+            res.status(422).json({message: 'O filme não foi encontrado!'})
             return
         }
         res.status(200).json(movie)
     }catch(error){
-        rres.status(500).json({ erro: 'Erro no servidor' })
+        res.status(500).json({ erro: 'Erro no servidor' })
     }
 
 })
@@ -90,7 +90,8 @@ router.patch('/:id', async (req,res) => {
     }
     try{
         
-        const updateMovie = await Movie.updateOne({_id: id}, movie)     
+        const updateMovie = await Movie.updateOne({_id: id}, movie)   
+        //matchedCount serve para verificar se ocorreu atualizações no user  
         if(updateMovie.matchedCount === 0){
             res.status(422).json({message: 'Filme não encontrado'})
             return

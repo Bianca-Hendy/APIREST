@@ -21,7 +21,7 @@ app.use('/movie', movieRoutes)
 app.get('/', (req,res) => {
     res.json({message: 'Rodou Express!'})
 })
-mongoose.connect('mongodb+srv://biancaHendy:EbY6JxHm0fkKpcXh@filmesdb.lwirl39.mongodb.net/test')
+mongoose.connect('mongodb+srv://<user>:<senha>@filmesdb.lwirl39.mongodb.net/test')
 .then(() => { //quando da certo a conexão 
     console.log('Conectou ao banco!')
     app.listen(3030)
